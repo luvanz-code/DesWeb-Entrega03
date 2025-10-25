@@ -1,0 +1,18 @@
+/* Definição do estado "oculto" dos nossos elementos.
+  Eles começam invisíveis (opacity: 0) e um pouco para baixo (translateY(20px)).
+*/
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    
+    /* Define a animação suave (transição) */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Esta é a classe que o JavaScript vai adicionar.
+  Ela torna o elemento visível e o move para a posição original (translateY(0)).
+*/
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

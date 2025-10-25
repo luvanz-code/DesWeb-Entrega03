@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../des_web"
+		},
+		{
+			"name": "des_web",
+			"path": "../../des_web/des_web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "des_web"
+	}
+}

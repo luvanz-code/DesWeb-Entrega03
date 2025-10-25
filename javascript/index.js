@@ -1,0 +1,1 @@
+alert("Bem-vindo à Ong Água Limpa para Todos! Junte-se a nós na missão de levar água potável para todos.");

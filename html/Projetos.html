@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head> <!--Configurações da página-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Ong Água Limpa para Todos</title> <!--Título-->
+    <link rel="shortcut icon" href="../Imagens/gota.ico" type="image/x-icon"> <!--Flavicon-->
+    <meta name="description"
+        content="Conheça os projetos da Ong Água Limpa para Todos, saiba como ser voluntário ou fazer uma doação para nossa causa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Lucida Bright", serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Cabeçalho e Navegação -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-blue-600">
+                    <a href="index.html">💧 Água Limpa para Todos</a>
+                </h1>
+                <nav>
+                    <ul class="flex space-x-6 text-lg">
+                        <li><a href="index.html" class="text-gray-600 hover:text-blue-600 transition">Início</a></li>
+                        <li><a href="projetos.html"
+                                class="text-blue-600 font-semibold border-b-2 border-blue-600">Projetos</a></li>
+                        <li><a href="cadastro.html" class="text-gray-600 hover:text-blue-600 transition">Participe</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção de Projetos -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Nossos Projetos em Ação</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Artigo do Projeto 1 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <div style="display: flex; justify-content: center; align-items: center;"> <!--Flexbox para centralizar a imagem-->
+                        <img src="../Imagens/poço artesiano.png" 
+                        alt="Imagem de um poço artesiano." height="200"
+                            width="200">
+                        </div>
+                        <div style="text-align: center;" </div> <!--Centralizar texto -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Projeto Sede Zero</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Focamos na perfuração de poços artesianos em regiões de seca severa, garantindo uma fonte de água perene e segura para centenas de famílias. <br> Um único poço pode transformar a realidade de um vilarejo inteiro.
+                            </p>
+                        </div>
+                    </article>
+                    <!-- Artigo do Projeto 2 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <div style="display: flex; justify-content: center; align-items: center;"> <!--Flexbox para centralizar a imagem-->
+                        <img src="../Imagens/cisterna1.png" alt="Imagem de uma cisterna." width="230" height="230">
+                        </div>
+                        <div style="text-align: center;" </div> <!--Centralizar texto -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">Guardiões da Chuva</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Implementamos cisternas de captação de água da chuva em residências e escolas. Essa tecnologia simples e eficaz garante o armazenamento de água de qualidade para consumo e
+                                agricultura familiar durante os períodos de estiagem.
+                            </p> 
+                        </div>
+                    </article>
+                    <!-- Artigo do Projeto 3 -->
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <div style="display: flex; justify-content: center; align-items: center;"> <!--Flexbox para centralizar a imagem-->
+                        <img src="../Imagens/educação.png" alt="Imagem representando a educação ambiental." width="250"
+                            height="250">
+                        </div>
+                        <div style="text-align: center;"</div> <!--Centralizar texto -->
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold mb-2">EducaÁgua</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Promovemos a educação sanitária e ambiental em escolas e associações comunitárias. Ensinamos práticas de higiene, o uso consciente da água e a importância do saneamento para a prevenção de doenças.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Seção de Voluntariado e Doação -->
+        <section class="bg-blue-50 py-16 px-6">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Voluntariado -->
+                    <aside class="bg-white p-8 rounded-lg shadow-md text-center">
+                        <h3 class="text-3xl font-bold mb-4">Seja um Voluntário</h3>
+                        <p class="text-lg mb-6">Sua habilidade e seu tempo podem fazer uma enorme diferença. Precisamos de engenheiros, educadores, comunicadores e pessoas dispostas a ajudar no campo. Faça parte da nossa equipe!</p>
+                        <a href="../html/Cadastro.html"
+                            class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition">Quero
+                            ser voluntário</a>
+                    </aside>
+                    <!-- Doação -->
+                    <aside class="bg-white p-8 rounded-lg shadow-md text-center">
+                        <h3 class="text-3xl font-bold mb-4">Faça uma Doação</h3>
+                        <p class="text-lg mb-6">Sua contribuição financeira nos permite comprar equipamentos, perfurar mais poços e levar esperança a mais pessoas. Qualquer valor é bem-vindo e transforma vidas.
+                        </p>
+                        <a href="https://wa.me/5511999999999?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                            class="bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-green-700 transition">Doe
+                            Agora <!--link abrindo contato por whatsapp-->
+                        </a>
+                    </a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white py-10 px-6">
+        <div class="container mx-auto text-center">
+            <h3 class="text-xl font-bold mb-2">ONG Água Limpa para Todos</h3>
+            <p class="mb-4">Dignidade que flui, gota a gota.</p>
+            <address class="not-italic">
+                <p><strong>Contato:</strong></p>
+                <p>Email: <a href="mailto:contato@aguaparatodos.org"
+                        class="text-blue-400 hover:underline">contato@aguaparatodos.org</a></p>
+                <p>Telefone: <a href="tel:+5511999998888" class="text-blue-400 hover:underline">(41) 9 8765-4321</a></p>
+                <p>Rua da Água Potável, 123, Curitiba - PR</p>
+            </address>
+            <p class="mt-6 text-sm text-gray-400">&copy; 2025 Ong Água Limpa para Todos. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

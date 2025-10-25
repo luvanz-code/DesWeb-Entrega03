@@ -1,71 +1,77 @@
-// 1. FUNÇÃO PARA ANIMAR O CONTADOR
-    const animateCounter = (el) => {
-        // Pega os dados do elemento
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 2000; // Duração da animação em milissegundos (2 segundos)
-        const prefix = el.dataset.prefix || ''; // Pega o prefixo (ex: "+") ou usa ""
-        const suffix = el.dataset.suffix || ''; // Pega o sufixo (ex: "+") ou usa ""
+/* === Conteúdo para: ../javascript/contador.js === */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Seleciona todos os elementos que têm a classe .counter
+    const counters = document.querySelectorAll('.counter');
+
+    // 2. A função que anima o número
+    const animateCounter = (element) => {
+        const target = +element.getAttribute('data-target'); // O número final
+        const prefix = element.getAttribute('data-prefix') || ''; // O "+" (opcional)
+        const suffix = element.getAttribute('data-suffix') || ''; // O "+" (opcional)
+        const duration = 2000; // Duração da animação em milissegundos (ex: 2 segundos)
         
-        let startTime = null;
+        const frameRate = 1000 / 60; // 60 frames por segundo
+        const totalFrames = Math.round(duration / frameRate);
+        const increment = target / totalFrames;
 
-        // Função de animação (passo a passo)
-        const step = (timestamp) => {
-            if (!startTime) {
-                startTime = timestamp;
-            }
+        let current = 0;
 
-            // Calcula o progresso da animação (de 0 a 1)
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            // Calcula o valor atual baseado no progresso
-            const currentValue = Math.floor(progress * target);
-            
-            // Formata o número para o padrão brasileiro (ex: 15000 -> 15.000)
-            const formattedValue = currentValue.toLocaleString('pt-BR');
-            
-            // Atualiza o HTML do elemento
-            el.innerText = prefix + formattedValue + suffix;
+        const updateCount = () => {
+            current += increment;
 
-            // Continua a animação se o progresso for menor que 1
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
+            if (current >= target) {
+                // Ao terminar, exibe o número final formatado
+                // .toLocaleString('pt-BR') formata 15000 para "15.000"
+                element.innerText = prefix + target.toLocaleString('pt-BR') + suffix;
+            } else {
+                // Durante a animação, exibe o número atual arredondado
+                element.innerText = prefix + Math.ceil(current).toLocaleString('pt-BR') + suffix;
+                // Chama a próxima "pintura" de tela
+                requestAnimationFrame(updateCount);
             }
         };
 
         // Inicia a animação
-        window.requestAnimationFrame(step);
+        requestAnimationFrame(updateCount);
     };
 
-    
-    // 2. INTERSECTION OBSERVER PARA INICIAR A ANIMAÇÃO QUANDO VISÍVEL
-    
-    // Seleciona todos os elementos com a classe "counter"
-    const counters = document.querySelectorAll('.counter');
-
-    // Opções do Observer:
-    // rootMargin: "margem" ao redor da tela (viewport)
-    // threshold: 0.5 = dispara quando 50% do elemento está visível
+    // 3. Configurações do IntersectionObserver
     const options = {
+        root: null, // Observa em relação à viewport inteira
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 0.1 // Dispara quando 10% do elemento estiver visível
     };
 
-    // O Callback do observer
-    const callback = (entries, observer) => {
+    // 4. O "Ouvinte" que será chamado
+    const handleIntersection = (entries, observer) => {
         entries.forEach(entry => {
-            // Se o elemento (entry) está visível (isIntersecting)
+            // entry.isIntersecting é 'true' quando o elemento entra na tela
             if (entry.isIntersecting) {
-                // Inicia a animação para esse elemento
-                animateCounter(entry.target);
+                const counterElement = entry.target;
                 
-                // Para de "observar" este elemento (para não animar de novo)
-                observer.unobserve(entry.target);
+                // Inicia a animação para aquele elemento
+                animateCounter(counterElement);
+                
+                // Para de "assistir" este elemento, para a animação não repetir
+                observer.unobserve(counterElement);
             }
         });
     };
-    // Cria o observer
-    const observer = new IntersectionObserver(callback, options);
-    // Faz o observer "observar" cada um dos contadores
+
+    // 5. Cria e inicia o Observer
+    const observer = new IntersectionObserver(handleIntersection, options);
+    
+    // Manda o Observer "assistir" cada um dos contadores
     counters.forEach(counter => {
+        // Inicia o contador com 0 (como no seu HTML original)
+        const prefix = counter.getAttribute('data-prefix') || '';
+        const suffix = counter.getAttribute('data-suffix') || '';
+        counter.innerText = prefix + '0' + suffix;
+
+        // Começa a observar
         observer.observe(counter);
     });
+
+});

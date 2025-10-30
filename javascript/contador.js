@@ -1,7 +1,5 @@
-/* === Conteúdo para: ../javascript/contador.js === */
-
-// Encapsulamos a lógica para que ela possa ser chamada pelo index.js
-window.initializeCounters = () => {
+// 'EventListener' que executa o código automaticamente quando o HTML carregar.
+document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Seleciona todos os elementos que têm a classe .counter
     const counters = document.querySelectorAll('.counter');
@@ -9,9 +7,8 @@ window.initializeCounters = () => {
     // Se não houver contadores, não faz nada
     if (counters.length === 0) return; 
 
-    // 2. A função que anima o número (Mantida a lógica interna)
+    // 2. A função que anima o número (Lógica interna inalterada)
     const animateCounter = (element) => {
-        // ... (todo o seu código da função animateCounter, inalterado) ...
         const target = +element.getAttribute('data-target');
         const prefix = element.getAttribute('data-prefix') || '';
         const suffix = element.getAttribute('data-suffix') || '';
@@ -37,7 +34,7 @@ window.initializeCounters = () => {
         requestAnimationFrame(updateCount);
     };
 
-    // 3. Configurações e Lógica do IntersectionObserver (Mantida a lógica interna)
+    // 3. Configurações e Lógica do IntersectionObserver (Inalterado)
     const options = {
         root: null,
         rootMargin: '0px',
@@ -56,9 +53,8 @@ window.initializeCounters = () => {
 
     const observer = new IntersectionObserver(handleIntersection, options);
     
-    // Manda o Observer "assistir" cada um dos contadores
+    // 4. Manda o Observer "assistir" cada um dos contadores (Inalterado)
     counters.forEach(counter => {
-        // Garante que o contador comece em 0 (opcional, mas bom)
         const prefix = counter.getAttribute('data-prefix') || '';
         const suffix = counter.getAttribute('data-suffix') || '';
         counter.innerText = prefix + '0' + suffix;
@@ -66,6 +62,4 @@ window.initializeCounters = () => {
         observer.observe(counter);
     });
 
-};
-// A chamada original `document.addEventListener('DOMContentLoaded', ...)` é removida.
-// O index.js agora chama `window.initializeCounters()` quando renderiza a home.
+}); // <- Chave de fechamento do 'DOMContentLoaded'

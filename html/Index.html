@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head> <!--Configurações da Página-->
-     <meta charset="UTF-8">
+<head> <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ong Água Limpa para Todos - Início</title> <!--Título-->
-    <link rel="shortcut icon" href="../Imagens/icon-agua-potavel-carro-pipa.webp" type="image/x-icon"> <!--Flavicon-->
-    <meta name="description"
+    <title>Ong Água Limpa para Todos - Início</title> <link rel="shortcut icon" href="Imagens/icon-agua-potavel-carro-pipa.webp" type="image/x-icon"> <meta name="description"
         content="Página inicial da Ong Água Limpa para Todos, uma organização dedicada a levar água potável e saneamento para comunidades carentes.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -24,46 +21,67 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Cabeçalho e Navegação -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md relative">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl font-bold text-blue-600">
                     <a href="index.html">💧 Água Limpa para Todos</a>
                 </h1>
-                <nav>
+
+                <button id="hamburger-button" class="md:hidden text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                
+                <nav class="hidden md:flex">
                     <ul class="flex space-x-6 text-lg">
                         <li><a href="index.html"
                                 class="text-blue-600 font-semibold border-b-2 border-blue-600">Início</a></li>
-                        <li><a href="../html/Projetos.html" class="text-gray-600 hover:text-blue-600 transition">Projetos</a>
+                        
+                        <li><a href="html/Projetos.html" class="text-gray-600 hover:text-blue-600 transition">Projetos</a>
                         </li>
-                        <li><a href="../html/Cadastro.html" class="text-gray-600 hover:text-blue-600 transition">Participe</a>
+                        <li><a href="html/Cadastro.html" class="text-gray-600 hover:text-blue-600 transition">Participe</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
+
+        <nav id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-lg left-0">
+            <ul class="flex flex-col">
+                <li><a href="index.html"
+                        class="block py-3 px-6 text-blue-600 font-semibold border-b-2 border-blue-600">Início</a></li>
+                
+                <li><a href="html/Projetos.html"
+                        class="block py-3 px-6 text-gray-600 hover:text-blue-600 transition border-t border-gray-100">Projetos</a>
+                </li>
+                <li><a href="html/Cadastro.html"
+                        class="block py-3 px-6 text-gray-600 hover:text-blue-600 transition border-t border-gray-100">Participe</a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <!-- Conteúdo Principal -->
+
     <main>
-        <!-- Seção Herói -->
         <section class="bg-blue-600 text-white text-center py-20 px-6">
             <div class="container mx-auto">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Transformando Vidas com Água Potável</h2>
                 <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Acreditamos que o acesso à água limpa é um direito humano fundamental. Junte-se a nós para levar saúde, dignidade e esperança a comunidades em todo o Brasil.</p>
-                <a href="projetos.html"
-   class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg transition hover:bg-blue-700 hover:text-white">
-   Conheça Nossos Projetos
-</a>
+                
+                <a href="html/Projetos.html"
+                   class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg transition hover:bg-blue-700 hover:text-white">
+                    Conheça Nossos Projetos
+                </a>
             </div>
         </section>
-        <!-- Seção Sobre Nós -->
         <section class="py-16 px-6">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-center">Nossa Missão</h2>
 
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
                     <div class="md:flex-shrink-0">
+                        
                         <img src="../Imagens/icon-agua-potavel-carro-pipa.webp"
                              alt="Imagem de uma gota de água"
                              class="efeito-fade mr-0 md:mr-6 w-40 sm:w-48 md:w-56 lg:w-72 max-w-full h-auto" />
@@ -80,41 +98,39 @@
                 </div>
             </div>
         </section>
-        <!-- Seção de Impacto -->
         <section class="bg-gray-100 py-16 px-6">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-12">Nosso Impacto em Números</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <article class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
-                    data-target="15000" data-prefix="+">
-                    0
-                </h3>
-                <p class="text-lg text-gray-700">Pessoas com acesso à água potável</p>
-            </article>
-            
-            <article class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
-                    data-target="50" data-suffix="+">
-                    0
-                </h3>
-                <p class="text-lg text-gray-700">Poços artesianos perfurados</p>
-            </article>
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12">Nosso Impacto em Números</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <article class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
+                            data-target="15000" data-prefix="+">
+                            0
+                        </h3>
+                        <p class="text-lg text-gray-700">Pessoas com acesso à água potável</p>
+                    </article>
+                    
+                    <article class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
+                            data-target="50" data-suffix="+">
+                            0
+                        </h3>
+                        <p class="text-lg text-gray-700">Poços artesianos perfurados</p>
+                    </article>
 
-            <article class="bg-white p-8 rounded-lg shadow-md">
-                <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
-                    data-target="200" data-suffix="+">
-                    0
-                </h3>
-                <p class="text-lg text-gray-700">Famílias com cisternas instaladas</p>
-            </article>
+                    <article class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="counter text-5xl font-bold text-blue-600 mb-2" 
+                            data-target="200" data-suffix="+">
+                            0
+                        </h3>
+                        <p class="text-lg text-gray-700">Famílias com cisternas instaladas</p>
+                    </article>
 
-        </div>
-    </div>
-</section>
+                </div>
+            </div>
+        </section>
     </main>
-    <!-- Rodapé -->
     <footer class="bg-gray-800 text-white py-10 px-6">
         <div class="container mx-auto text-center">
             <h3 class="text-xl font-bold mb-2">ONG Água Limpa para Todos</h3>
@@ -130,7 +146,20 @@
             </p>
         </div>
     </footer>
+    
     <script src="../javascript/contador.js"></script>
+    
     <script src="../javascript/index.js"> </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            hamburgerButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
